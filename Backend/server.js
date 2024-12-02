@@ -1,20 +1,19 @@
-
 const http = require('http');
 const app = require('./app');
 
 
 const normalizePort = val => {
-    const port = parseInt(val, 10);
+  const port = parseInt(val, 10);
 
-    if (isNaN(port)) {
-        return val;
-    }
-    if (port >= 0) {
-        return port;
-    }
-    return false;
+  if (isNaN(port)) {
+    return val;
+  }
+  if (port >= 0) {
+    return port;
+  }
+  return false;
 };
-const port = normalizePort(process.env.PORT || '4001');
+const port = normalizePort(process.env.PORT || '4000');
 app.set('port', port);
 
 const errorHandler = error => {
@@ -37,7 +36,6 @@ const errorHandler = error => {
   }
 };
 
-// create the server with app //
 const server = http.createServer(app);
 
 server.on('error', errorHandler);
