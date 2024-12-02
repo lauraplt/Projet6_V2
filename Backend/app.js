@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const userRoutes = require('./Routes/User');
+const bookRoutes = require('./Routes/Book');
 const path = require('path');
 
 const app = express(); // Declare app before using it
@@ -22,6 +23,7 @@ app.use(express.json());
 
 // Routes for user authentication and books
 app.use('/api/auth', userRoutes);
+app.use('/api/books', bookRoutes);
 
 // Serve static images
 app.use('/images', express.static(path.join(__dirname, 'images')));
